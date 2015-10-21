@@ -294,8 +294,8 @@ void help() { background( 150,220,220 ); m=1;
   say( "   5. Change window size to 700x500; table centered; code works properly." );
   say( "   6. Click on any ball to move it to right half of table.   (same as keys 1,2,3.)" );
   say( "M3 IN-CLASS EXAM (next week) will include:" );
-  say( "   7. Write a Ball class; use it to add 4th ball that behaves similarly (with collisions)." );  
-  say( "   8. Write a Bird class; use it to make 3 birds fly across table, wings flapping.  ['b']" );  
+  say( "   7. Write a Ball class (that behaves similarly)." );  
+  say( "   8. Write a Bird class, that draws an animated bird with flapping wings.  ['b']" );  
 }
 
 
