@@ -98,14 +98,14 @@ void poolTable(float left, float right, float up, float down){
 //BALLS BOUNCE OF POOL TABLE  
   void bounce() {
     
-      rootX += rootDX; if ( rootX > middle|| rootX < right )  rootDX *= -1; 
-      rootY += rootDY; if ( rootY < up || rootY > down)      rootDY *=  -1;
+      rootX += rootDX; if ( rootX < middle +50|| rootX > right )  rootDX *= -1; 
+      rootY += rootDY; if ( rootY > up || rootY < down)           rootDY *=  -1;
       
-      jamX += jamDX;   if ( jamX < middle || jamX > right )    jamDX *= -1;
-      jamY += jamDY;   if ( jamY < up || jamY > down)        jamDY *=  -1;
+      jamX += jamDX;   if ( jamX < middle+50 || jamX > right )    jamDX *= -1;
+      jamY += jamDY;   if ( jamY > up || jamY < down)             jamDY *=  -1;
        
-      voiceX += voiceDX;  if ( voiceX < middle || voiceX  > right) voiceDX *= -1;
-      voiceY += voiceDY;  if ( voiceY < up || voiceY > down)     voiceDY *=  -1;  
+      voiceX += voiceDX;  if ( voiceX < middle+50 || voiceX  > right) voiceDX *= -1;
+      voiceY += voiceDY;  if ( voiceY > up || voiceY < down)          voiceDY *=  -1;  
 }
 void collisions() {
       float tmp;
