@@ -129,8 +129,8 @@ void collisions() {
       fill(0);
       stroke(0);
       text( title, 220, 20 );
-      text( news, 320, 40);
-      text( author,320, 60);
+      text( news, 220, 40);
+      text( author,220, 60);
   }
   void keyPressed() {
     
