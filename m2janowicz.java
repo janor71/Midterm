@@ -66,9 +66,9 @@ void reset() {
      voiceX = random(midwest, texas);        voiceY =random(maine,dakota);
   
 // SPEED OF BALLS
-     rootDX =  random(-2,3);        rootDY= random(-2,3);
-     jamDX =   random(-2,3);        jamDY = random(-2,3);
-     voiceDX = random(-2,3);        voiceDY=random(-2,3);
+     rootDX =  random(1,3);        rootDY= random(1,3);
+     jamDX =   random(1,3);        jamDY = random(1,3);
+     voiceDX = random(1,3);        voiceDY=random(1,3);
     
      
     pooltableR=23;
@@ -250,26 +250,25 @@ void collisions() {
         
      } else if 
   // RESTORES THE WALL      ( although is not working). 
-        ((mouseX < buttonX2 + buttonW2 && 
-          mouseX > buttonX2) &&
-         (mouseY < buttonY2 + buttonH2 && 
-          mouseY > buttonY2)){
-            wall = false; 
+       (mouseX < buttonX2 + buttonW2 ||
+        mouseY < buttonY2 + buttonH2 )
+         {  wall = false;
+     
             
       // RESET THE BALLS RANDOMLY      
       } else if 
-          (mouseX >= rootX &&
-           mouseY >= rootY) 
+          (mouseX <= rootX &&
+           mouseY <= rootY) 
           {rootX= random(midwest, texas);   rootY= random(maine, dakota);   
          
       } else if 
-          (mouseX >= jamX &&
-           mouseY >= jamY) 
+          (mouseX <= jamX &&
+           mouseY <= jamY) 
          {jamX= random(midwest, texas);   jamY= random(maine, dakota); 
          
       } else if 
-          (mouseX >= voiceX &&
-           mouseY >= voiceY) 
+          (mouseX <= voiceX &&
+           mouseY <= voiceY) 
          {  voiceX= random(midwest, texas);   voiceY= random(maine, dakota); }
        
          
