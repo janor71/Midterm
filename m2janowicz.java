@@ -270,7 +270,7 @@ void collisions() {
       } else if 
           (mouseX >= voiceX &&
            mouseY >= voiceY) 
-         { voiceX= random(midwest, texas);   voiceY= random(maine, dakota); }
+         {  voiceX= random(midwest, texas);   voiceY= random(maine, dakota); }
        
          
   }
@@ -279,12 +279,12 @@ void collisions() {
   void keyPressed() {
 
     
-        if (key == 'r') reset();
-        if (key == 'w') { wall=false; }
-        if (key == 'q') { exit();  }
-        if (key == 'p') { pooltableR=252;  pooltableG=176; pooltableB= 235; }
-        if ( key =='m' ){ going = true ; 
-    } else {
+   if (key == 'r') reset();
+   if (key == 'w') { wall=false; }
+   if (key == 'q') { exit();  }
+   if (key == 'p') { pooltableR=252;  pooltableG=176; pooltableB= 235; }
+   if ( key =='m' ){ going = true ; 
+ } else {
         going = false;
       }
   
