@@ -24,7 +24,7 @@ float voiceX,  voiceY,  voiceDX,  voiceDY;
 float oregon = 50, maine= 400 , dakota= 150, texas = 650;                           // TABLE PERIMETER 
 float midwest= 350;
 boolean wall = true;
-boolean rat=false;;
+boolean going = false;
 int pooltableR=23, pooltableG=85, pooltableB= 18;     // GREEN POOL TABLE 
 
 int score;
@@ -42,8 +42,8 @@ float buttonW2= 120;
 float buttonH2= 60;
 float ratX=0;
 float ratY = 480;
-float x, y;  
-//float ratX
+float ratDX = 1;
+
 // SETUP
 void setup(){
   //640,480
@@ -54,8 +54,8 @@ void setup(){
      dakota =150;                       
      texas = 650; 
      midwest= 350;
-     x= width;
-     y= 480;
+    // x= width;
+    // y= 480;
  reset();
 }
 void reset() {
@@ -86,7 +86,10 @@ void draw() {
       buttons();
       rat();
       count= count +1;
-
+ 
+  if (going) { 
+    
+  ratX = ratX + 1; }
 }
 
 // SHOWING POOL TABLE      
@@ -174,6 +177,8 @@ void collisions() {
           score = score + 1;
          }
   }
+  
+  // MESSAGES 
     void message() {
       fill(0);
       stroke(0);
@@ -193,20 +198,17 @@ void collisions() {
   rect(buttonX, buttonY, buttonW, buttonH);
   fill(255);
   text("RESET", buttonX+20, buttonY+35);
-  
+  // REMOVE WALL    
   noStroke();
   fill(108,45,49);
   rect(buttonX2, buttonY2, buttonW2, buttonH2);
   fill(255);
   text("remove wall", buttonX2, buttonY2-10);
   }
-  
+// RAT   
  void rat() {
-  
-  ratX=  ratX - (ratX-x)/40;
-  ratY=  ratY - (ratY-y)/50;
-  
- 
+   
+   
   strokeWeight(1);
   stroke(0);
   fill( 185,130,56);                         // body's color 
@@ -224,7 +226,7 @@ void collisions() {
   fill(247,195,226);                         // mouth's color
 //
 
-
+// LEGS
   float leg1=ratX+10, leg2=ratX-15;
    strokeWeight(5);
    stroke(95,62,21); 
@@ -268,25 +270,23 @@ void collisions() {
       } else if 
           (mouseX >= voiceX &&
            mouseY >= voiceY) 
-         {  voiceX= random(midwest, texas);   voiceY= random(maine, dakota); }
+         { voiceX= random(midwest, texas);   voiceY= random(maine, dakota); }
        
          
-       }
-   
-  
+  }
+    
 
   void keyPressed() {
 
     
-   if (key == 'r') reset();
-   if (key == 'w') { wall=false; }
-   if (key == 'q') { exit();  }
-     
-     if (key == 'p') {
-       pooltableR=252; 
-       pooltableG=176; 
-       pooltableB= 235;
-     }
+        if (key == 'r') reset();
+        if (key == 'w') { wall=false; }
+        if (key == 'q') { exit();  }
+        if (key == 'p') { pooltableR=252;  pooltableG=176; pooltableB= 235; }
+        if ( key =='m' ){ going = true ; 
+    } else {
+        going = false;
+      }
   
        if (key == '1') {  rootX= random(midwest, texas);   rootY= random(maine, dakota);   } 
      
@@ -294,7 +294,7 @@ void collisions() {
        
        if (key == '3') {  voiceX= random(midwest, texas);  voiceY= random(maine, dakota);  }
        
-       // THIS IS EXTRA. IT WILL RESET THE BALL RANDOMLY IF WALL IS REMOVE. 
+       // THIS IS EXTRA. IT WILL RESET THE BALLS RANDOMLY IF WALL IS REMOVE. 
      
    if (wall ==false) {
      
